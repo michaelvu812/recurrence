@@ -61,7 +61,10 @@ module SimplesIdeias
     #   Recurrence.default_until_date = Date.tomorrow
     #
     def self.default_until_date=(date)
-      @default_until_date = as_date(date)
+      begin
+        @default_until_date = date.to_s.to_date
+      rescue
+      end
     end
 
     # Create a daily recurrence.
